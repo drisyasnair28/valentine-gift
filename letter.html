@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>My Valentine Letter ❤️</title>
+
   <style>
     body {
       background: #fff0f5;
@@ -34,6 +35,28 @@
       margin-top: 20px;
     }
 
+    /* Forever text */
+    .forever {
+      margin-top: 25px;
+      font-size: 22px;
+      color: #ff4d88;
+      font-weight: bold;
+      opacity: 0;
+      animation: fadeIn 3s ease forwards;
+      animation-delay: 3s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* Floating hearts */
     .heart {
       position: fixed;
@@ -41,6 +64,7 @@
       font-size: 24px;
       animation: floatUp 6s linear infinite;
       opacity: 0.8;
+      z-index: 1;
     }
 
     @keyframes floatUp {
@@ -53,15 +77,33 @@
         opacity: 0;
       }
     }
+
+    /* Music button */
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff4d88;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 30px;
+      font-size: 14px;
+      z-index: 5;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 
 <body>
 
   <!-- Background Music -->
-  <audio autoplay loop>
+  <audio id="bgMusic" loop>
     <source src="love.mp3" type="audio/mpeg">
   </audio>
+
+  <button class="music-btn" onclick="playMusic()">🎶 Play Music</button>
 
   <div class="letter">
     <h2>My Love,</h2>
@@ -70,12 +112,14 @@
       It’s been three beautiful years with you.<br><br>
       This is my first Valentine’s Day gift for you —  
       a letter straight from my heart 💌<br><br>
-      I love you so much.  
-      I want to live with you forever.  
+      I love you so much.<br>
+      I want to live with you forever.<br>
       You mean everything to me.
     </p>
 
     <img src="us.PNG" alt="Our Photo">
+
+    <div class="forever">Forever with you ❤️</div>
   </div>
 
   <!-- Floating Hearts Script -->
@@ -96,6 +140,11 @@
     }
 
     setInterval(createHeart, 500);
+
+    function playMusic() {
+      const music = document.getElementById("bgMusic");
+      music.play();
+    }
   </script>
 
 </body>
