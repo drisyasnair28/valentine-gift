@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Valentine Gift ❤️</title>
+
+  <style>
+    body {
+      background: #ffe6f0;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding-top: 100px;
+    }
+
+    h1 {
+      color: #ff4d88;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 220px;
+      margin-top: 15px;
+    }
+
+    button {
+      background: #ff4d88;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .error {
+      color: red;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>❤️ Happy Valentine’s Day ❤️</h1>
+  <p>This gift is only for Vivek 💌</p>
+
+  <input
+    type="password"
+    id="password"
+    placeholder="Enter password"
+  >
+
+  <br>
+
+  <button onclick="checkPassword()">Click Here</button>
+
+  <p id="error" class="error">Sorry ❤️ This gift is private.</p>
+
+  <script>
+    function checkPassword() {
+      const enteredPassword = document.getElementById("password").value;
+
+      if (enteredPassword === "vivekforever") {
+        window.location.href = "letter.html";
+      } else {
+        document.getElementById("error").style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
